@@ -12,11 +12,14 @@ function Star({ number, value, onClick, emptyColor, filledColor, size }) {
       className="clickable"
       onClick={handleClick}
       data-index={`star-${number}`}
+      data-testid={`star-${number}`}
     >
       <FontAwesomeIcon
         icon={faStar}
         color={number <= value ? filledColor : emptyColor}
         size={size}
+        data-testid={"star-is-filled-" + (number <= value ? "1" : "0") }
+        className={(number <= value ? filledColor : emptyColor) + "-star"}
       />
     </span>
   );
